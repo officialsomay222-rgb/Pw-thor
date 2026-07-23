@@ -1,0 +1,6 @@
+{
+  "name": "Study Thor PWA",
+  "description": "A progressive web app launcher for Study Thor batches.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
