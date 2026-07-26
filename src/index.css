@@ -32,12 +32,12 @@
 
 @layer utilities {
   .keyboard-safe-area-bottom {
-    padding-bottom: max(env(safe-area-inset-bottom, 0px), env(keyboard-inset-bottom, 0px));
+    padding-bottom: max(env(safe-area-inset-bottom, 0px), var(--keyboard-inset-bottom, 0px));
     transition: padding-bottom 0.05s ease-out;
   }
 
   .input-keyboard-safe-area {
-    bottom: max(env(safe-area-inset-bottom, 0px), env(keyboard-inset-bottom, 0px));
+    bottom: max(env(safe-area-inset-bottom, 0px), var(--keyboard-inset-bottom, 0px));
     transition: bottom 0.05s ease-out;
   }
 }

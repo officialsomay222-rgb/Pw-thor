@@ -11,7 +11,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '24'
       - name: Setup Java
         uses: actions/setup-java@v4
         with:
@@ -39,14 +39,9 @@ jobs:
           rm -f release.keystore
           keytool -genkey -v -keystore release.keystore -alias studythor -keyalg RSA -keysize 2048 -validity 10000 -storepass study123 -keypass study123 -dname "CN=Study Thor, OU=Study, O=Study, L=Delhi, ST=Delhi, C=IN"
       - name: Build Android App
-        env:
-          KEYSTORE_FILE: release.keystore
-          KEYSTORE_PASSWORD: study123
-          KEY_ALIAS: studythor
-          KEY_PASSWORD: study123
         run: |
           cd android
-          gradle assembleRelease --no-daemon --refresh-dependencies
+          gradle assembleRelease -Pandroid.injected.signing.storeFile=release.keystore -Pandroid.injected.signing.storePassword=study123 -Pandroid.injected.signing.keyAlias=studythor -Pandroid.injected.signing.keyPassword=study123 --no-daemon --refresh-dependencies
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
