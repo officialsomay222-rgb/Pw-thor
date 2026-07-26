@@ -27,6 +27,12 @@ jobs:
         run: npm install
       - name: Build web app
         run: npm run build
+      - name: Generate Assets
+        run: |
+          mkdir -p android/app/src/main/res/values
+          echo '<?xml version="1.0" encoding="utf-8"?><resources><string name="app_name">Study Thor</string></resources>' > android/app/src/main/res/values/strings.xml
+          if [ -f assets/logo.png ]; then cp assets/logo.png assets/icon.png || true; cp assets/logo.png assets/splash.png || true; fi
+          npx @capacitor/assets generate --android --assetPath assets
       - name: Capacitor Sync
         run: npx cap sync android
       - name: Aggressive Cache Clean
