@@ -2,7 +2,7 @@
  * @license
  * SPDX-License-Identifier: Apache-2.0
  */
-import { Zap, BookOpen, ExternalLink, GraduationCap, ChevronRight, CheckCircle, ArrowLeft, BadgeCheck, Library } from 'lucide-react';
+import { Zap, BookOpen, ExternalLink, GraduationCap, ChevronRight, CheckCircle, ArrowLeft, BadgeCheck } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Browser } from '@capacitor/browser';
 
@@ -44,8 +44,8 @@ export default function App() {
             <div className="relative w-28 h-28 bg-zinc-900 border border-zinc-800/80 rounded-3xl flex items-center justify-center shadow-2xl overflow-hidden group">
               <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               
-              <div className="relative flex items-center justify-center">
-                <Library className="w-12 h-12 text-zinc-300 absolute transition-transform duration-500 group-hover:scale-110" strokeWidth={1.5} />
+              <div className="relative flex items-center justify-center w-full h-full">
+                <img src="/logo.jpg" alt="Vidya X Owner Logo" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
                 <div className="absolute inset-0 bg-cyan-400/20 blur-md rounded-full scale-0 group-hover:scale-150 transition-transform duration-700" />
               </div>
             </div>
@@ -53,7 +53,7 @@ export default function App() {
 
           <div className="space-y-2">
             <h1 className="text-4xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-br from-zinc-100 to-zinc-500 font-sans">
-              Study Thor
+              Vidya X Owner
             </h1>
             <p className="text-zinc-400 text-sm font-medium tracking-wide">
               PROGRESSIVE LEARNING BATCHES

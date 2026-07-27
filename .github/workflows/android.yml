@@ -32,7 +32,7 @@ jobs:
       - name: Generate Assets
         run: |
           mkdir -p android/app/src/main/res/values
-          echo '<?xml version="1.0" encoding="utf-8"?><resources><string name="app_name">Study Thor</string></resources>' > android/app/src/main/res/values/strings.xml
+          echo '<?xml version="1.0" encoding="utf-8"?><resources><string name="app_name">Vidya X Owner</string></resources>' > android/app/src/main/res/values/strings.xml
       - name: Capacitor Sync
         run: npx cap sync android
       - name: Aggressive Cache Clean
@@ -43,7 +43,7 @@ jobs:
         run: |
           cd android/app
           rm -f release.keystore
-          keytool -genkey -v -keystore release.keystore -alias studythor -keyalg RSA -keysize 2048 -validity 10000 -storepass study123 -keypass study123 -dname "CN=Study Thor, OU=Study, O=Study, L=Delhi, ST=Delhi, C=IN"
+          keytool -genkey -v -keystore release.keystore -alias studythor -keyalg RSA -keysize 2048 -validity 10000 -storepass study123 -keypass study123 -dname "CN=Vidya X Owner, OU=Study, O=Study, L=Delhi, ST=Delhi, C=IN"
       - name: Build Android App
         run: |
           cd android

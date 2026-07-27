@@ -2,9 +2,8 @@ import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
   appId: 'com.studythor.pwa',
-  appName: 'Study Thor',
+  appName: 'Vidya X Owner',
   webDir: 'dist',
-  bundledWebRuntime: false,
   server: {
     url: 'https://pw-thor-two.vercel.app',
     cleartext: true,
