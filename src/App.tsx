@@ -2,7 +2,7 @@
  * @license
  * SPDX-License-Identifier: Apache-2.0
  */
-import { Zap, BookOpen, ExternalLink, GraduationCap, ChevronRight, CheckCircle, ArrowLeft, ShieldCheck, Library } from 'lucide-react';
+import { Zap, BookOpen, ExternalLink, GraduationCap, ChevronRight, CheckCircle, ArrowLeft, BadgeCheck, Library } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useState } from 'react';
 
@@ -15,26 +15,34 @@ export default function App() {
       <div className="w-full h-full min-h-screen bg-[#09090b] flex flex-col">
         {/* Browser Header Panel */}
         <div className="flex items-center justify-between px-4 py-3 bg-zinc-900 border-b border-zinc-800 shadow-md">
-          <button 
-            onClick={() => setIsBrowsing(false)}
-            className="p-2 -ml-2 text-zinc-400 hover:text-zinc-100 transition-colors rounded-full hover:bg-zinc-800"
-          >
-            <ArrowLeft className="w-5 h-5" />
-          </button>
-          
-          <div className="flex items-center space-x-2">
-            <span className="text-zinc-100 font-medium tracking-wide">Owner</span>
+          <div className="flex items-center space-x-3">
+            <button 
+              onClick={() => setIsBrowsing(false)}
+              className="p-2 -ml-2 text-zinc-400 hover:text-zinc-100 transition-colors rounded-full hover:bg-zinc-800"
+            >
+              <ArrowLeft className="w-5 h-5" />
+            </button>
             
-            <div className="relative flex items-center justify-center">
-              <ShieldCheck className="w-5 h-5 text-[#FFD700] drop-shadow-[0_0_8px_rgba(255,215,0,0.6)]" fill="#B8860B" />
-              {/* Shining animation effect on the golden tick */}
-              <div className="absolute inset-0 overflow-hidden rounded-full">
-                <div className="absolute top-0 -left-[100%] w-1/2 h-full bg-gradient-to-r from-transparent via-white to-transparent opacity-40 skew-x-[30deg] animate-[shine_2s_infinite]" />
+            <div className="flex items-center space-x-2">
+              <span className="text-zinc-100 text-2xl tracking-wide" style={{ fontFamily: "'Dancing Script', cursive" }}>Owner</span>
+              
+              <div className="relative flex items-center justify-center">
+                {/* Aura effect behind the tick */}
+                <div className="absolute inset-0 bg-[#FFD700]/40 rounded-full blur-md animate-pulse" />
+                <div className="absolute inset-0 bg-[#FFD700]/20 rounded-full animate-[ping_3s_cubic-bezier(0,0,0.2,1)_infinite]" />
+                
+                {/* Twitter-like golden tick */}
+                <BadgeCheck className="w-5 h-5 text-[#FFD700] relative z-10 drop-shadow-[0_0_8px_rgba(255,215,0,0.8)]" fill="#B8860B" />
+                
+                {/* Shining animation effect on the golden tick */}
+                <div className="absolute inset-0 overflow-hidden rounded-full z-20">
+                  <div className="absolute top-0 -left-[100%] w-1/2 h-full bg-gradient-to-r from-transparent via-white to-transparent opacity-60 skew-x-[30deg] animate-[shine_2s_infinite]" />
+                </div>
               </div>
             </div>
           </div>
           
-          <div className="w-9" /> {/* Spacer for centering */}
+          <div className="w-9" /> {/* Spacer for centering if needed */}
         </div>
         
         {/* Iframe Content */}
