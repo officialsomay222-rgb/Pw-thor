@@ -4,69 +4,14 @@
  */
 import { Zap, BookOpen, ExternalLink, GraduationCap, ChevronRight, CheckCircle, ArrowLeft, BadgeCheck, Library } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import { useState } from 'react';
+import { Browser } from '@capacitor/browser';
 
 export default function App() {
-  const [isBrowsing, setIsBrowsing] = useState(false);
   const targetUrl = 'https://pwthor.live/study/batches';
 
-  if (isBrowsing) {
-    return (
-      <div className="w-full h-full min-h-screen bg-[#09090b] flex flex-col">
-        {/* Browser Header Panel */}
-        <div className="flex items-center justify-between px-4 py-3 bg-zinc-900 border-b border-zinc-800 shadow-md">
-          <div className="flex items-center space-x-3">
-            <button 
-              onClick={() => setIsBrowsing(false)}
-              className="p-2 -ml-2 text-zinc-400 hover:text-zinc-100 transition-colors rounded-full hover:bg-zinc-800"
-            >
-              <ArrowLeft className="w-5 h-5" />
-            </button>
-            
-            <div className="flex items-center space-x-2">
-              <span className="text-[#FFD700] text-3xl font-bold tracking-wide" style={{ fontFamily: "'Dancing Script', cursive", textShadow: '0 0 10px rgba(255, 215, 0, 0.3)' }}>Owner</span>
-              
-              <div className="relative flex items-center justify-center ml-1">
-                {/* Aura effect behind the tick */}
-                <div className="absolute inset-0 bg-[#FFD700]/30 rounded-full blur-[8px] animate-pulse scale-150" />
-                <div className="absolute inset-0 bg-[#FFD700]/20 rounded-full blur-[12px] animate-[ping_3s_cubic-bezier(0,0,0.2,1)_infinite] scale-150" />
-                
-                {/* Twitter-like golden tick */}
-                <BadgeCheck className="w-6 h-6 text-[#FFD700] relative z-10 drop-shadow-[0_0_8px_rgba(255,215,0,1)]" fill="#B8860B" />
-                
-                {/* Shining animation effect on the golden tick */}
-                <div className="absolute inset-0 overflow-hidden rounded-full z-20">
-                  <div className="absolute top-0 -left-[100%] w-1/2 h-full bg-gradient-to-r from-transparent via-white to-transparent opacity-80 skew-x-[30deg] animate-[shine_2s_infinite]" />
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div className="w-9" /> {/* Spacer for centering if needed */}
-        </div>
-        
-        {/* Iframe Content */}
-        <div className="flex-1 w-full bg-zinc-950 relative">
-          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-            <div className="w-8 h-8 border-4 border-zinc-800 border-t-cyan-500 rounded-full animate-spin" />
-          </div>
-          <iframe 
-            src={targetUrl} 
-            className="relative z-10 w-full h-full border-0 bg-white"
-            title="PW Thor Study Platform"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          />
-        </div>
-        
-        <style>{`
-          @keyframes shine {
-            100% { left: 200%; }
-          }
-        `}</style>
-      </div>
-    );
-  }
+  const openInAppBrowser = async () => {
+    await Browser.open({ url: targetUrl });
+  };
 
   return (
     <div className="w-full h-full min-h-screen bg-[#09090b] text-zinc-100 flex flex-col items-center justify-center p-4 selection:bg-cyan-500/30 keyboard-safe-area-bottom">
@@ -124,7 +69,7 @@ export default function App() {
           className="w-full flex flex-col space-y-4"
         >
           <button
-            onClick={() => setIsBrowsing(true)}
+            onClick={openInAppBrowser}
             className="group relative flex items-center justify-between w-full bg-zinc-900 border border-zinc-800 p-5 rounded-2xl overflow-hidden transition-all duration-300 hover:border-cyan-500/50 hover:bg-zinc-800/80 hover:shadow-[0_0_30px_rgba(34,211,238,0.15)] active:scale-[0.98]"
           >
             <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/0 via-cyan-500/10 to-purple-500/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-in-out" />
@@ -145,7 +90,7 @@ export default function App() {
           </button>
           
           <button 
-            onClick={() => setIsBrowsing(true)}
+            onClick={openInAppBrowser}
             className="text-xs text-zinc-600 flex items-center justify-center space-x-1 hover:text-cyan-400 transition-colors"
           >
             <span>Continue to Learning Platform</span>
