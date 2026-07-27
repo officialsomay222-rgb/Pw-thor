@@ -4,7 +4,7 @@
 	"webDir": "dist",
 	"bundledWebRuntime": false,
 	"server": {
-		"url": "https://pw-thor.vercel.app",
+		"url": "https://pw-thor-two.vercel.app",
 		"cleartext": true,
 		"allowNavigation": [
 			"*"
