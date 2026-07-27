@@ -4,7 +4,14 @@ const config: CapacitorConfig = {
   appId: 'com.studythor.pwa',
   appName: 'Study Thor',
   webDir: 'dist',
-  bundledWebRuntime: false
+  bundledWebRuntime: false,
+  server: {
+    url: 'https://pw-thor-two.vercel.app',
+    cleartext: true,
+    allowNavigation: [
+      '*'
+    ]
+  }
 };
 
 export default config;
