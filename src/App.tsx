@@ -24,19 +24,19 @@ export default function App() {
             </button>
             
             <div className="flex items-center space-x-2">
-              <span className="text-zinc-100 text-2xl tracking-wide" style={{ fontFamily: "'Dancing Script', cursive" }}>Owner</span>
+              <span className="text-[#FFD700] text-3xl font-bold tracking-wide" style={{ fontFamily: "'Dancing Script', cursive", textShadow: '0 0 10px rgba(255, 215, 0, 0.3)' }}>Owner</span>
               
-              <div className="relative flex items-center justify-center">
+              <div className="relative flex items-center justify-center ml-1">
                 {/* Aura effect behind the tick */}
-                <div className="absolute inset-0 bg-[#FFD700]/40 rounded-full blur-md animate-pulse" />
-                <div className="absolute inset-0 bg-[#FFD700]/20 rounded-full animate-[ping_3s_cubic-bezier(0,0,0.2,1)_infinite]" />
+                <div className="absolute inset-0 bg-[#FFD700]/30 rounded-full blur-[8px] animate-pulse scale-150" />
+                <div className="absolute inset-0 bg-[#FFD700]/20 rounded-full blur-[12px] animate-[ping_3s_cubic-bezier(0,0,0.2,1)_infinite] scale-150" />
                 
                 {/* Twitter-like golden tick */}
-                <BadgeCheck className="w-5 h-5 text-[#FFD700] relative z-10 drop-shadow-[0_0_8px_rgba(255,215,0,0.8)]" fill="#B8860B" />
+                <BadgeCheck className="w-6 h-6 text-[#FFD700] relative z-10 drop-shadow-[0_0_8px_rgba(255,215,0,1)]" fill="#B8860B" />
                 
                 {/* Shining animation effect on the golden tick */}
                 <div className="absolute inset-0 overflow-hidden rounded-full z-20">
-                  <div className="absolute top-0 -left-[100%] w-1/2 h-full bg-gradient-to-r from-transparent via-white to-transparent opacity-60 skew-x-[30deg] animate-[shine_2s_infinite]" />
+                  <div className="absolute top-0 -left-[100%] w-1/2 h-full bg-gradient-to-r from-transparent via-white to-transparent opacity-80 skew-x-[30deg] animate-[shine_2s_infinite]" />
                 </div>
               </div>
             </div>
@@ -144,10 +144,13 @@ export default function App() {
             </div>
           </button>
           
-          <p className="text-xs text-zinc-600 flex items-center justify-center space-x-1">
+          <button 
+            onClick={() => setIsBrowsing(true)}
+            className="text-xs text-zinc-600 flex items-center justify-center space-x-1 hover:text-cyan-400 transition-colors"
+          >
             <span>Continue to Learning Platform</span>
             <ExternalLink className="w-3 h-3" />
-          </p>
+          </button>
         </motion.div>
 
       </motion.div>
